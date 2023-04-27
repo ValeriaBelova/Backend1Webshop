@@ -56,7 +56,7 @@ public class Backend1WebshopApplication {
 
 			ordersRepo.save(ord1);
 			ordersRepo.save(ord2);
-			ordersRepo.save(ord3);
+			ordersRepo.save(ord3); //
 
 
 		};

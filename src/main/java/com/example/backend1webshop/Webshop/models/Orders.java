@@ -19,7 +19,11 @@ public class Orders {
     @JoinColumn
     private Customer customer;
     @ManyToMany
-    @JoinColumn
+    @JoinTable(
+            name = "orders_products",
+            joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private List<Product> products;
 
     public Orders(LocalDateTime date, Customer customer, List<Product> products) {

@@ -18,17 +18,13 @@ public class Orders {
     @OneToOne
     @JoinColumn
     private Customer customer;
-
-    @OneToMany(mappedBy = "orders")
+    @OneToMany
+    @JoinColumn
     private List<Product> products;
 
     public Orders(LocalDateTime date, Customer customer, List<Product> products) {
         this.date = date;
         this.customer = customer;
         this.products = products;
-        for (Product product : products) {
-            product.setOrders(this);
-        }
-
     }
 }

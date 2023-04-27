@@ -15,10 +15,6 @@ public class Product {
     private String name;
     private int price;
 
-    @ManyToOne
-    @JoinColumn
-    private Orders orders;
-
 
     public Product(String name, int price) {
         this.name = name;

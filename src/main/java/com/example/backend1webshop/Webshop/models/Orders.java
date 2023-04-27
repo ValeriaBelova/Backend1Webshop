@@ -15,10 +15,10 @@ public class Orders {
     private Long id;
     private LocalDateTime date;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn
     private Customer customer;
-    @OneToMany
+    @ManyToMany
     @JoinColumn
     private List<Product> products;
 

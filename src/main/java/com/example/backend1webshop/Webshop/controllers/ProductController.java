@@ -2,17 +2,20 @@ package com.example.backend1webshop.Webshop.controllers;
 
 import com.example.backend1webshop.Webshop.models.Product;
 import com.example.backend1webshop.Webshop.repos.ProductRepo;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataAccessException;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class ProductController {
 
     private final ProductRepo repo;
+
+
+    private static final Logger log = LoggerFactory.getLogger(CustomerController.class);
 
     public ProductController(ProductRepo repo) {
         this.repo = repo;
@@ -24,8 +27,24 @@ public class ProductController {
     }
 
     @RequestMapping("/items/{id}")
-    public Optional<Product> itemsById(@PathVariable Long id){
-
-        return repo.findById(id);
+    public Product itemsById(@PathVariable Long id) {
+        if (repo.findById(id).isPresent()) {
+            return repo.findById(id).get();
+        } else {
+            log.info("No item with that id exists");
+            return null;
+        }
     }
+    @PostMapping("items/add")
+    public String addProduct(@RequestBody Product p){
+        try {
+            repo.save(p);
+            log.info("Product saved");
+            return "Saved";
+        } catch(DataAccessException e){
+                log.error("Failed to save product", e);
+                return "Failed to save product";
+            }
+    }
+
 }

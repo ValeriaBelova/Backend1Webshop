@@ -23,7 +23,7 @@ public class Backend1WebshopApplication {
 	}
 
 	@Bean
-	public CommandLineRunner bootsrapData(CustomerRepo customerRepo,
+	public CommandLineRunner bootstrapData(CustomerRepo customerRepo,
 										  OrdersRepo ordersRepo,
 										  ProductRepo productRepo) {
 		return (args) -> {

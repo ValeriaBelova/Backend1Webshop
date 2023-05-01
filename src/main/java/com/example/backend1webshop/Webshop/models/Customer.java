@@ -20,8 +20,8 @@ public class Customer {
     // if you delete a Customer entity, JPA will also delete all their associated Orders entities.
     // Similarly, if you persist a new Customer entity,
     // JPA will also persist any associated Orders entities.
-    @OneToMany//(mappedBy = "customer", cascade = CascadeType.ALL)
-    private List<Orders> orders;
+    //@OneToMany//(mappedBy = "customer", cascade = CascadeType.ALL)
+    //private List<Orders> orders;
 
 
     public Customer(String name, String ssn) {

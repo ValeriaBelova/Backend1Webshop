@@ -22,7 +22,7 @@ public class Backend1WebshopApplication {
 		SpringApplication.run(Backend1WebshopApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
 	public CommandLineRunner bootstrapData(CustomerRepo customerRepo,
 										  OrdersRepo ordersRepo,
 										  ProductRepo productRepo) {
@@ -61,6 +61,6 @@ public class Backend1WebshopApplication {
 
 
 		};
-	}
+	}*/
 
 }

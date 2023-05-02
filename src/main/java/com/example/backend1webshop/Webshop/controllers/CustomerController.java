@@ -51,8 +51,8 @@ public class CustomerController {
         if (name != null && ssn != null){
             if(! name.isEmpty() && ! ssn.isEmpty()){
                 customerRepo.save(c);
-                log.info("New customer "+name+ "was added");
-                return "New customer - " +c.getName()+ " was added";
+                log.info("New customer "+name+ " was added");
+                return "New customer " +c.getName()+ " was added";
             }
         }
         log.info("New customer was not added");

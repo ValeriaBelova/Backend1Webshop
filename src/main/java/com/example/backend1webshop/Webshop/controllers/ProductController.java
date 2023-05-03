@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
@@ -44,6 +43,9 @@ public class ProductController {
             return null;
         }
     }
+
+    /*curl http://localhost:8080/items/add -H "Content-Type:application/json" -d
+    "{\"name\":\"Gucci\", \"price\":\"1500\"}" -v*/
     @PostMapping("items/add")
     public String addProduct(@RequestBody Product p){
         try {
